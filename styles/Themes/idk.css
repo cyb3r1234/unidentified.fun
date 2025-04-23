@@ -1,0 +1,43 @@
+/* Style for the div container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Ensure the text fits within the container */
+.container h1, .container p {
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    font-size: calc(1rem + 1vw); /* Scales with screen size */
+}
+
+/* Style for the hearts */
+.heart {
+    position: absolute;
+    width: 5vw; /* Scales with screen size */
+    height: 5vw; /* Scales with screen size */
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
+}
+
+/* Position the hearts */
+.heart.left {
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.heart.right {
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+}

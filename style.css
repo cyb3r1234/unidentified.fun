@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: white;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center elements vertically */
+    align-items: center; /* Center elements horizontally */
+    min-height: 100vh;
+    background-color: rgb(27, 27, 27);
+    font-family: "Poppins", sans-serif;
+    padding: 10px; /* Add padding for smaller screens */
+}
+
+
+
+.background {
+    background-color: #fff;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 999999;
+}
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container .preloader{
+  animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes rotate {
+  50%{
+    transform: rotate(360deg);
+  }
+  100%{
+    transform: rotate(720deg);
+  }
+}
+.preloader span{
+  position: absolute;
+  display: block;
+  height: 64px;
+  width: 64px;
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  border-radius: 100%;
+}
+.preloader span:nth-child(1){
+  transform: translate(-28px, -28px);
+  animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_1 {
+  60%{
+    transform: scale(0.4);
+  }
+}
+.preloader span:nth-child(2){
+  transform: translate(28px, -28px);
+  animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_2 {
+  40%{
+    transform: scale(0.4);
+  }
+}
+.preloader span:nth-child(3){
+  position: relative;
+  border-radius: 0px;
+  transform: scale(0.98) rotate(-45deg);
+  animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_3 {
+  50%{
+    border-radius: 100%;
+    transform: scale(0.5) rotate(-45deg);
+  }
+  100%{
+    transform: scale(0.98) rotate(-45deg);
+  }
+}
+.shadow{
+  position: relative;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  height: 16px;
+  width: 64px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  border: 1px solid #d9d9d9;
+  animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shadow {
+  50%{
+    transform: translateX(-50%) scale(0.5);
+    border-color: #f2f2f2;
+  }
+}
+
+
+.div-container {
+    width: 90%; /* Use relative width for responsiveness */
+    max-width: 680px; /* Limit the maximum width */
+    margin-bottom: 20px; /* Add spacing between the containers */
+}
+
+.entryarea {
+    position: relative;
+    height: 80px;
+    line-height: 80px;
+}
+
+form {
+    display: flex;
+    justify-content: center; /* Center the form horizontally */
+    align-items: center; /* Center the form vertically */
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%; /* Ensure it spans the full width for centering */
+}
+
+input {
+    position: absolute;
+    width: 100%;
+    outline: none;
+    font-size: 1.5em; /* Adjust font size for responsiveness */
+    padding: 0 20px;
+    line-height: 60px; /* Adjust line height */
+    border-radius: 10px;
+    border: 2px solid #f0ffff;
+    background: transparent;
+    transition: 0.1s ease;
+    z-index: 1111;
+}
+
+.labelline {
+    position: absolute;
+    font-size: 1em; /* Adjust font size for responsiveness */
+    color: #f0ffff;
+    padding: 0 15px;
+    margin: 0 10px;
+    background-color: rgb(27, 27, 27);
+    transition: 0.2s ease;
+}
+
+input:focus,
+input:valid {
+    color: rgb(5, 5, 5);
+    border: 4px solid rgb(5, 5, 5);
+}
+
+input:focus + .labelline,
+input:valid + .labelline {
+    color: rgb(5, 5, 5);
+    height: 30px;
+    line-height: 30px;
+    transform: translate(-15px, -16px) scale(0.88);
+    z-index: 1111;
+}
+
+.sub-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center; /* Center the button vertically */
+    margin-top: 30px; /* Adjust spacing for responsiveness */
+    width: 100%; /* Ensure it spans the full width for centering */
+}
+
+button {
+    position: relative; /* Change to relative for better responsiveness */
+    width: 50%; /* Use relative width */
+    max-width: 200px; /* Limit the maximum width */
+    outline: none;
+    text-align: center;
+    font-size: 1.2em; /* Adjust font size for responsiveness */
+    padding: 10px 20px;
+    line-height: normal; /* Adjust line height */
+    border-radius: 10px;
+    border: 2px solid #f0ffff;
+    background: transparent;
+    transition: 0.23s ease;
+    z-index: 1111;
+}
+
+button:hover {
+    border: 5px solid rgb(5, 5, 5);
+    transform: scale(1.05);
+    z-index: 1111;
+    color: #000;
+}
+
+button:active {
+    font-weight: bold;
+    border: 2px solid rgb(225, 225, 225);
+    transform: scale(0.96);
+    background-color: #f0ffff;
+    color: #000 solid;
+}
+
+.ResponseText {
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+    text-align: center; /* Ensure text is centered within the element */
+    font-size: 1.2em; /* Reduce font size */
+    color: #f0ffff;
+    margin-top: 15px; /* Add spacing below the submit button */
+    padding: 5px; /* Add padding for better readability */
+    width: 100%; /* Ensure it spans the full width for centering */
+    max-width: 680px; /* Limit the maximum width */
+    word-wrap: break-word; /* Ensure long text wraps properly */
+}
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 768px) {
+    input {
+        font-size: 1.2em; /* Reduce font size */
+        padding: 0 15px;
+    }
+
+    .labelline {
+        font-size: 0.9em; /* Reduce label font size */
+    }
+
+    button {
+        width: 70%; /* Increase button width for smaller screens */
+        font-size: 1em; /* Reduce button font size */
+    }
+
+    .ResponseText {
+        font-size: 1.5em; /* Reduce font size for medium screens */
+        margin-top: 15px; /* Adjust spacing */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduce font size for medium screens */
+        margin-top: 15px; /* Adjust spacing */   
+     }
+}
+
+@media (max-width: 480px) {
+    input {
+        font-size: 1em; /* Further reduce font size */
+        padding: 0 10px;
+    }
+
+    .labelline {
+        font-size: 0.8em; /* Further reduce label font size */
+    }
+
+    button {
+        width: 80%; /* Further increase button width */
+        font-size: 0.9em; /* Further reduce button font size */
+    }
+
+    .ResponseText {
+        font-size: 1.2em; /* Further reduce font size for small screens */
+        margin-top: 10px; /* Adjust spacing */
+    }
+
+    h1 {
+        font-size: 1.2em; /* Further reduce font size for small screens */
+        margin-top: 10px; /* Adjust spacing */
+    }
+}

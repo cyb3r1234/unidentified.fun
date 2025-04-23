@@ -1,0 +1,222 @@
+
+:where(*) {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+
+
+body {
+    background-color: #FFF1D7;
+    font-family: "Poppins", monospace;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    min-height: 100vh; /* Ensures the body takes up the full viewport height */
+    margin: 0;
+    text-align: center; /* Centers text content */
+}
+
+
+
+
+.background {
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 999999;
+}
+
+.container{
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+
+.container .preloader{
+animation: rotate 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+
+@keyframes rotate {
+50%{
+  transform: rotate(360deg);
+}
+100%{
+  transform: rotate(720deg);
+}
+}
+.preloader span{
+position: absolute;
+display: block;
+height: 64px;
+width: 64px;
+background: #ff0000;
+border: 1px solid #ff0000;
+border-radius: 100%;
+}
+.preloader span:nth-child(1){
+transform: translate(-28px, -28px);
+animation: shape_1 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_1 {
+60%{
+  transform: scale(0.4);
+}
+}
+.preloader span:nth-child(2){
+transform: translate(28px, -28px);
+animation: shape_2 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_2 {
+40%{
+  transform: scale(0.4);
+}
+}
+.preloader span:nth-child(3){
+position: relative;
+border-radius: 0px;
+transform: scale(0.98) rotate(-45deg);
+animation: shape_3 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shape_3 {
+50%{
+  border-radius: 100%;
+  transform: scale(0.5) rotate(-45deg);
+}
+100%{
+  transform: scale(0.98) rotate(-45deg);
+}
+}
+.shadow{
+position: relative;
+top: 30px;
+left: 50%;
+transform: translateX(-50%);
+display: block;
+height: 16px;
+width: 64px;
+border-radius: 50%;
+background-color: #d9d9d9;
+border: 1px solid #d9d9d9;
+animation: shadow 2.3s cubic-bezier(0.75, 0, 0.5, 1) infinite;
+}
+@keyframes shadow {
+50%{
+  transform: translateX(-50%) scale(0.5);
+  border-color: #f2f2f2;
+}
+}
+
+
+
+/* Styles for images */
+.img-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Reduced minimum height */
+    min-width: 200px; /* Reduced minimum width */
+}
+
+img {
+    width: 100%;
+    max-width: 300px; /* Reduced maximum width */
+    height: auto;
+    display: block;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+    border-radius: 10px; /* Rounds the corners */
+    cursor: pointer;
+    transition: filter 0.3s ease; /* Smooth transition for blur effect */
+}
+
+.img-container:hover img {
+    filter: blur(4px); /* Blurs the image slightly on hover */
+}
+
+.img-text {
+    position: absolute;
+    top: 40%; /* Position text vertically on the image */
+    left: 50%; /* Center text horizontally */
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+}
+
+.img-container:hover .img-text {
+    opacity: 1; /* Show text on hover */
+}
+
+h2 {
+    font-size: 1.8rem; /* Scales header text */
+    margin: 1rem 0; /* Adds spacing above and below */
+}
+
+p {
+    font-size: .8rem; /* Increased paragraph text size */
+    margin: 0.15rem 2rem; /* Adds horizontal and vertical padding */
+    line-height: 1.6; /* Improves readability */
+    max-width: 600px; /* Optional: Limit paragraph width */
+    text-align: left; /* Aligns text to the left */
+    
+}
+
+a.btn, a.btn-link {
+    text-decoration: none;
+    color: #fff;
+}
+/* Adjusted button position to the bottom of the image */
+.btn {
+    position: absolute;
+    bottom: 10px; /* Position button at the bottom with some spacing */
+    left: 50%; /* Center button horizontally */
+    transform: translateX(-50%); /* Adjust horizontal centering */
+    border: 4px solid #121212;
+    border-radius: 8px;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: "Poppins";
+    cursor: pointer;
+    transition: 0.8s, opacity 0.3s ease;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Prevent interaction when hidden */
+}
+
+.img-container:hover .btn {
+    opacity: 1; /* Show button on hover */
+    visibility: visible; /* Make it interactable */
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0%;
+    background: #121212;
+    z-index: -1;
+    transition: 0.8s;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn:hover::before {
+    height: 100%; /* Prevents layout shifts by using a fixed height */
+    overflow: hidden; /* Ensures content stays within bounds */
+    border-radius: 0 0; /* Adjusts border radius on hover */
+}
